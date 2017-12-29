@@ -31,6 +31,7 @@ module.exports = class extends React.Component {
 
   onInputChange = (evt) => {
     const fields = this.state.fields;
+    // update state "fields" object based on name attribute
     fields[evt.target.name] = evt.target.value;
     this.setState({ fields });
   };

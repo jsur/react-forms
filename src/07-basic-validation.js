@@ -23,6 +23,8 @@ module.exports = class extends React.Component {
     this.setState({ fieldErrors });
     evt.preventDefault();
 
+    // fieldErrors used to show error strings
+    // this.validate() always returns an object 
     if (Object.keys(fieldErrors).length) return;
 
     this.setState({
