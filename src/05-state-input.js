@@ -11,14 +11,16 @@ module.exports = class extends React.Component {
     names: [],
   };
 
-  onFormSubmit = (evt) => {
-    const names = [ ...this.state.names, this.state.name ];
-    this.setState({ names: names, name: '' });
-    evt.preventDefault();
+  onNameChange = (evt) => {
+    // 1. always update state when value changes
+    this.setState({ name: evt.target.value });
   };
 
-  onNameChange = (evt) => {
-    this.setState({ name: evt.target.value });
+  onFormSubmit = (evt) => {
+    // 2. Then use this.state.name to update name list
+    const names = [ ...this.state.names, this.state.name ];
+    this.setState({ names, name: '' });
+    evt.preventDefault();
   };
 
   render() {
