@@ -47,13 +47,16 @@ module.exports = class extends React.Component {
   };
 
   fetch = (department) => {
+    console.log(department);
     this.setState({ _loading: true, courses: [] });
     apiClient(department).then((courses) => {
+      console.log(courses);
       this.setState({ _loading: false, courses: courses });
     });
   };
 
   renderDepartmentSelect = () => {
+    console.log(this.state.department);
     return (
       <select
         onChange={this.onSelectDepartment}

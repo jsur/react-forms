@@ -39,12 +39,15 @@ module.exports = class extends React.Component {
     const fields = this.state.fields;
     const fieldErrors = this.state.fieldErrors;
 
+    console.log(fieldErrors);
+
     fields[name] = value;
     fieldErrors[name] = error;
 
     this.setState({ fields, fieldErrors });
   };
 
+  // returns true if data is not valid at form level.
   validate = () => {
     const person = this.state.fields;
     const fieldErrors = this.state.fieldErrors;
@@ -57,6 +60,7 @@ module.exports = class extends React.Component {
     return false;
   };
 
+  // Individual Field components take care of their own validity
   render() {
     return (
       <div>
