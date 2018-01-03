@@ -41,6 +41,7 @@ module.exports = class extends React.Component {
     if (this.validate()) return;
 
     const people = [ ...this.state.people, person ];
+    console.log(people);
 
     this.setState({ _saveStatus: 'SAVING' });
     apiClient.savePeople(people)
@@ -126,6 +127,8 @@ module.exports = class extends React.Component {
           <br />
 
           {{
+            // make a submit input based on _saveStatus
+            // corresponding object key will be rendered on each render()!!
             SAVING: <input value='Saving...' type='submit' disabled />,
             SUCCESS: <input value='Saved!' type='submit' disabled />,
             ERROR: <input
@@ -161,7 +164,7 @@ apiClient = {
       then: function (cb) {
         setTimeout(() => {
           cb(JSON.parse(localStorage.people || '[]'));
-        }, 1000);
+        }, 500);
       },
     };
   },
@@ -181,3 +184,17 @@ apiClient = {
 
   count: 1,
 };
+
+
+/*
+
+NOTES:
+
+1. Field level validation
+2. Field validation errors bubble up to parent from onChange events
+3. Individual field validation functions passed into Field component as "validate" props
+4. Form level validation handled in validate(): required fields etc.
+5. Inform user of save status with state changes (_saveStatus)
+6. savePeople returns a Promise, nice snippet for mocking an API call
+
+*/
