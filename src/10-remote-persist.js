@@ -196,5 +196,6 @@ NOTES:
 4. Form level validation handled in validate(): required fields etc.
 5. Inform user of save status with state changes (_saveStatus)
 6. savePeople returns a Promise, nice snippet for mocking an API call
+7. Remember to use PropTypes for type safety
 
 */

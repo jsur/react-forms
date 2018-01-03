@@ -49,3 +49,15 @@ export function reducer (state = initialState, action) {
       return state;
   }
 }
+
+/*
+
+NOTES:
+
+1. Actions and the reducer should explicitly tell all the ways state can be update
+2. Establish shape of state and how it can change
+3. Preferably no component level state at all
+4. Redux state will be passed in as props to dumb components
+5. Store is created after actions and reducer have been made
+
+*/
